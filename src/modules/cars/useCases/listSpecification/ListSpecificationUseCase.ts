@@ -10,7 +10,7 @@ class ListSpecificationUseCase {
   ) {}
 
   async execute(): Promise<Specification[]> {
-    const specifications = this.specificationRepository.list();
+    const specifications = await this.specificationRepository.list();
 
     return specifications;
   }
