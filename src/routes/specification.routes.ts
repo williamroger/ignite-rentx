@@ -2,12 +2,12 @@ import { Router } from 'express';
 import { CreateSpecificationController } from '../modules/cars/useCases/createSpecification/CreateSpecializationController';
 import { ListSpecificationController } from '../modules/cars/useCases/listSpecification/ListSpecificationController';
 
-const specificationsRouter = Router();
+const specificationsRoutes = Router();
 const createSpecificationController = new CreateSpecificationController();
 const listSpecificationController = new ListSpecificationController();
 
-specificationsRouter.post('/', createSpecificationController.handle);
+specificationsRoutes.post('/', createSpecificationController.handle);
 
-specificationsRouter.get('/', listSpecificationController.handle);
+specificationsRoutes.get('/', listSpecificationController.handle);
 
-export { specificationsRouter };
+export { specificationsRoutes };
