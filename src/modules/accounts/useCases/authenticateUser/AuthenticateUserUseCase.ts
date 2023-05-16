@@ -3,6 +3,7 @@ import { compare } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
 import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { AppError } from "../../../../errors/AppError";
 
 interface IRequest {
   email: string;
@@ -29,14 +30,14 @@ class AuthenticateUserUseCase {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
-      throw new Error('Email or Password incorrect!');
+      throw new AppError('Email or Password incorrect!');
     }
 
     // password is correct
     const passwordMatch = await compare(password, user.password);
 
     if (!passwordMatch) {
-      throw new Error('Email or Password incorrect!');
+      throw new AppError('Email or Password incorrect!');
     }
 
     // generate jwt rentxignite
