@@ -39,7 +39,7 @@ class AuthenticateUserUseCase {
       throw new Error('Email or Password incorrect!');
     }
 
-    // generate jwt
+    // generate jwt rentxignite
     const token = sign({}, '15b1c269e2207484d60e5f460eb76119', {
       subject: user.id,
       expiresIn: '1d',
